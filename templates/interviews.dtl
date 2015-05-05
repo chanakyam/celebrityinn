@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html ng-app="celebrityinn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Celebrityinn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<link rel='stylesheet' id='camera-css'  href='/css/camera.css' type='text/css' media='all'>
+<script language="javascript" src="/js/html5.js"></script>
+<script type='text/javascript' src='/js/jquery-1.7.1.min.js'></script>    
+<script src="/js/angular.min.js"></script>
+<script src="/js/controllers.js"></script>   
+<script src="/js/ui-bootstrap-tpls-0.6.0.js"></script>
+<script type='text/javascript' src='/js/jquery.easing.1.3.js'></script>
+<script type='text/javascript' src='/js/camera.min.js'></script>
+<script src="/js/jwplayer-5.9.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#interview_imgs').camera({
+      height: '620px',          
+      loader: 'bar',
+      pagination: false,
+      overlayer: true,
+      loaderOpacity: .1,
+      thumbnails: true
+    });
+  });
+</script>
+<script>
+function play_video(video,vtitle){    
+  $('#slidetitle').html(vtitle);
+  // start of code for generating cb,pagetit,pageurl
+  // var vastURI = 'http://vast.optimatic.com/vast/getVast.aspx?id=m0713sn36r&zone=vpaidtag&pageURL=[INSERT_PAGE_URL]&pageTitle=[INSERT_PAGE_TITLE]&cb=[CACHE_BUSTER]';   
+// var vastURI = 'http://ad4.liverail.com/?LR_PUBLISHER_ID=44293&LR_SCHEMA=vast2-vpaid';   
+    $(document).ready(function() {
+      // var hvideo = $("#hid").val();
+      // alert(hvideo);
+      jwplayer('trailor').setup({
+                  "flashplayer": "http://player.longtailvideo.com/player.swf",
+                  "playlist": [
+                    {
+                      "file": video
+                    }
+                  ],
+                  "width": 680,
+                  "height": 330,
+                  stretching: "exactfit",
+                  skin: "http://content.longtailvideo.com/skins/glow/glow.zip",
+                  autostart: true,
+                  "controlbar": {
+                    "position": "bottom"
+                  },
+                  "plugins": {
+                    "ova-jw": {
+                      "ads": {
+                        "companions": {
+                          "regions": [
+                            {
+                              "id": "companion",
+                              "width": 80,
+                              "height": 300
+                            }
+                          ]
+                        },
+                        "schedule": [
+                          {
+                            "position": "pre-roll",
+                            // "tag": updateURL(vastURI)                            
+                            "tag": "http://ad4.liverail.com/?LR_PUBLISHER_ID=44293&LR_SCHEMA=vast2-vpaid"
+                          }
+                        ]
+                      },
+                      "debug": {
+                        "levels": "none"
+                      }
+                    }
+                  }
+                });
+    })
+  
+      }
+</script>
+<!-- google analytics code start -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-43119651-7', 'celebrityinn.com');
+    ga('send', 'pageview');
+
+  </script>
+<!-- google analytics code end -->
+</head>
+
+<body ng-controller="CelebrityinnHome" ng-cloak>
+<div class="container">
+
+    <header>
+      <a href="/" title="Celebrityinn" class="logo"><img src="/images/logo.png" alt=""></a>
+      <div class="topbanner">
+        <!-- namimedia/celebrityinn_ros_728x90 -->
+        <script type="text/javascript">
+          var ord = window.ord || Math.floor(Math.random() * 1e16);
+          document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4206/adj/namimedia/celebrityinn_ros_728x90;sz=728x90;ord=' + ord + '?"><\/script>');
+        </script>
+        <noscript>
+        <a href="http://ad.doubleclick.net/N4206/jump/namimedia/celebrityinn_ros_728x90;sz=728x90;ord=[timestamp]?">
+        <img src="http://ad.doubleclick.net/N4206/ad/namimedia/celebrityinn_ros_728x90;sz=728x90;ord=[timestamp]?" width="728" height="90" />
+        </a>
+        </noscript>
+      </div>
+    	<span class="clear"></span>
+    </header>
+    <!-- header end -->
+
+ 
+
+<nav>
+  <div class="navcontainer">
+    <div class="menu"> <span>MENU</span>
+      <ul class="Navigation">
+        <li> <a href="/" title="Home" >Home</a> </li>
+        <li><a href="/more_news?c=media_content&p=1" title="Movie News">Movie News</a></li>
+        <li><a href="/moreinterviews?c=interviews_view&p=1" class="active" title="Celebrity Interviews">Celebrity Interviews</a></li>
+        <li><a href="/more_videos?c=full_composite_article&p=1" title="Videos">Videos</a></li>
+        <li><a href="/photo_gallery?c=image_gallery_view" title="Gallery">Gallery</a></li>
+        <!-- <li><a href="#" title="Contact Us">Contact Us</a></li> -->
+      </ul>
+    </div>
+    <!-- menu end --> 
+  </div>                                                       
+  
+	<!-- <div class="nav-right">
+		<a href="#"><img src="/images/fb.png"></a>
+		<a href="#"><img src="/images/twitter1.png"></a>
+	</div> -->
+	<!-- TopRight end -->
+		
+  <span class="clear"></span>
+</nav>
+<!-- nav end -->
+
+<div class="contentarea">
+    
+    
+    
+<div class="leftcontent">
+  <div class="slideshow">
+  	<div class="slideshow-inner">
+      <input type="hidden" name="vide_val" id="video_val" value="{{videoParam.video}}">
+      <div id="trailor" ng-init="loadVideo()">Loading the player...</div>
+    </div>
+    <div class="slidetitle" id="slidetitle">{{videoParam.title}}</div>
+  </div>
+  <!-- slideshow end -->
+  
+</div>
+
+	<div class="sidebar">
+		<div class="slidenav">
+			<a ng-repeat="n in latestVideos | limitTo: 2" href="#" class="" title="{% verbatim %}{{ n.value.title }}{% endverbatim %}" onclick="play_video('http://video.contentapi.ws/{% verbatim %}{{ n.value.video}}{% endverbatim %}','{% verbatim %}{{ n.value.title}}{% endverbatim %}');" href="javascript:void(0);">
+        <img ng-src="http://img.contentapi.ws/{% verbatim %}{{ n.value.thumb_image }}{% endverbatim %}" title="{% verbatim %}{{ n.value.title }}{% endverbatim %}"> <span class="play"></span>
+      </a>
+			<!-- <a href="#">
+        <img src="images/nav-thumb-2.jpg" alt=""> <span class="play"></span>
+      </a> -->
+		</div>
+	
+		<div class="rightad">
+      <!-- namimedia/celebrityinn_ros_300x250 -->
+      <script type="text/javascript">
+        var ord = window.ord || Math.floor(Math.random() * 1e16);
+        document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4206/adj/namimedia/celebrityinn_ros_300x250;sz=300x250;ord=' + ord + '?"><\/script>');
+      </script>
+      <noscript>
+      <a href="http://ad.doubleclick.net/N4206/jump/namimedia/celebrityinn_ros_300x250;sz=300x250;ord=[timestamp]?">
+      <img src="http://ad.doubleclick.net/N4206/ad/namimedia/celebrityinn_ros_300x250;sz=300x250;ord=[timestamp]?" width="300" height="250" />
+      </a>
+      </noscript>
+    </div>
+	</div>
+	
+</div><!-- contentarea end -->
+
+
+<span class="clear"></span>
+
+
+  
+  
+
+<section class="contentarea">
+	<aside class="leftcontent">
+  
+  <div class="photo-gallery-interview_imgs">
+    <div class="Title center"><span class="green">{{newsParam.title}}</span></div>
+      <div class="stories">
+      <div id="interview_imgs">
+          
+          {% for img in newsParam.image_name %}
+          
+          <div data-thumb="http://img.contentapi.ws/{{ img }}" data-src="http://img.contentapi.ws/{{ img }}" data-time="1700" data-trasPeriod="4000"></div>
+          
+         {% endfor %}
+          
+      </div>
+      <p>{{newsParam.content}}</p>
+  </div>
+
+  
+  
+</aside>
+
+
+<aside class="sidebar">
+	
+        
+        
+  
+  <div class="module twitterposts">
+        <!--<div class="module-title">Latest Tweets</div>
+        <div class="FieldLeft">
+          <div class="twitter-cont">
+            <p><img src="images/small-thumb1.jpg"></p>
+            <p><strong class="blue">Rob Fee@</strong>robfee</p>
+            <p>I wish every episode of Breaking Bad started with the cast playing in a fountain like on Friends.</p>
+            <p class="gray margin20_T small"><img align="absmiddle" src="images/twitter-small.png"> 7:35 AM - 19 Aug 13</p>
+            <p class="gray small"><img align="absmiddle" src="images/reply.png"> Reply <span class="right"><img align="absmiddle" src="images/retweet.png"> Retweet</span></p>
+            <p class="gray small"><img align="absmiddle" src="images/favorite.png"> Favorite</p>
+          </div>
+          
+          <div class="twitter-cont">
+            <p><img src="images/small-thumb1.jpg"></p>
+            <p><strong class="blue">Rob Fee@</strong>robfee</p>
+            <p>I wish every episode of Breaking Bad started with the cast playing in a fountain like on Friends.</p>
+            <p class="gray margin20_T small"><img align="absmiddle" src="images/twitter-small.png"> 7:35 AM - 19 Aug 13</p>
+            <p class="gray small"><img align="absmiddle" src="images/reply.png"> Reply <span class="right"><img align="absmiddle" src="images/retweet.png"> Retweet</span></p>
+            <p class="gray small"><img align="absmiddle" src="images/favorite.png"> Favorite</p>
+          </div>
+        </div>-->
+        <div class="text-center">
+          <!-- namimedia/celebrityinn_ros_160x600 -->
+          <script type="text/javascript">
+            var ord = window.ord || Math.floor(Math.random() * 1e16);
+            document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4206/adj/namimedia/celebrityinn_ros_160x600;sz=160x600;ord=' + ord + '?"><\/script>');
+          </script>
+          <noscript>
+          <a href="http://ad.doubleclick.net/N4206/jump/namimedia/celebrityinn_ros_160x600;sz=160x600;ord=[timestamp]?">
+          <img src="http://ad.doubleclick.net/N4206/ad/namimedia/celebrityinn_ros_160x600;sz=160x600;ord=[timestamp]?" width="160" height="600" />
+          </a>
+          </noscript>
+        </div>
+      </div>
+    
+    <span class="clear"></span>
+  
+
+	<div class="rightad margin10_T">
+    <!-- namimedia/celebrityinn_ros_300x250 -->
+    <script type="text/javascript">
+      var ord = window.ord || Math.floor(Math.random() * 1e16);
+      document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4206/adj/namimedia/celebrityinn_ros_300x250;sz=300x250;ord=' + ord + '?"><\/script>');
+    </script>
+    <noscript>
+    <a href="http://ad.doubleclick.net/N4206/jump/namimedia/celebrityinn_ros_300x250;sz=300x250;ord=[timestamp]?">
+    <img src="http://ad.doubleclick.net/N4206/ad/namimedia/celebrityinn_ros_300x250;sz=300x250;ord=[timestamp]?" width="300" height="250" />
+    </a>
+    </noscript>
+  </div>
+
+ 
+</aside>
+
+<span class="clear"></span>
+
+
+	<div class="bottom">
+    <div class="ad1">
+      <!-- namimedia/celebrityinn_ros_728x90 -->
+      <script type="text/javascript">
+        var ord = window.ord || Math.floor(Math.random() * 1e16);
+        document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4206/adj/namimedia/celebrityinn_ros_728x90;sz=728x90;ord=' + ord + '?"><\/script>');
+      </script>
+      <noscript>
+      <a href="http://ad.doubleclick.net/N4206/jump/namimedia/celebrityinn_ros_728x90;sz=728x90;ord=[timestamp]?">
+      <img src="http://ad.doubleclick.net/N4206/ad/namimedia/celebrityinn_ros_728x90;sz=728x90;ord=[timestamp]?" width="728" height="90" />
+      </a>
+      </noscript>
+    </div>
+  </div>
+</section>
+  
+</div>
+<!-- container end -->
+
+
+<footer>
+	<div class="container">
+	
+		<p>
+      <a href="/">Home</a> | <a href="/more_news?c=media_content&p=1">Movie News</a> | <a href="/moreinterviews?c=interviews_view&p=1">Celebrity Interviews</a> | <a href="/more_videos?c=full_composite_article&p=1">Video</a> | <a href="/photo_gallery?c=image_gallery_view">Gallery</a> | <a href="#">Terms & Conditions</a>
+    </p>
+    <summary>
+        <p>Copyright &copy; {% verbatim %}{{currentYear}}{% endverbatim %} Celebrityinn All Rights Reserved</p>
+        <!-- <p>
+            <a href="#"><img src="/images/facebook.png"></a>
+            <a href="#"><img src="/images/twitter.png"></a>
+            <a href="#"><img src="/images/google.png"></a>
+        </p> -->
+    </summary>
+    </div>
+    <!-- container end -->
+</footer>
+<!-- footer end -->
+</body>
+</html>
